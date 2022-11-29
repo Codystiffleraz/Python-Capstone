@@ -1,0 +1,47 @@
+{% extends 'base.html' %}{% block title %}{{ clothes.name }} - Details{% endblock %}
+
+
+{% block body %} 
+
+
+<div class="clothes-details">
+  
+    <img class="clothes-details-images" src="{{ clothes.image_path }}">
+
+  <div class="clothes-details-everything-but-image">
+    <div class="clothes-details-name">
+      <h3>{{ clothes.name }}</h3>
+    </div>
+
+     <div class="clothes-details-price">
+        <div class="cd-price"><p> Price: </div>
+          <div class="cd-jprice"> {{ clothes.price }} </div>
+        </p>
+    </div>
+
+    <div class="clothes-details-size">
+        <div class="cd-size"><p> Size: </div>
+          <div class="cd-jsize"> {{ clothes.size }} </div>
+        </p>
+    </div>
+
+    <div class="clothes-details-description">
+        <div><p> Description: <br></div>
+          <div> {{ clothes.description }} </div>
+        </p>
+    </div>
+
+    {% if session.get('user_email') %}
+
+    <form action="/clothes/{{ clothes.clothes_id }}/carts" method="POST">
+      <p><input class="submit" type="Submit" value="Add to Cart"/></p> 
+    </form>
+  </div>
+
+</div>
+
+{% endif %} 
+
+{% endblock %}
+
+

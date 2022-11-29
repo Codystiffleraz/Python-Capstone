@@ -1,0 +1,18 @@
+{% extends 'base.html' %} {% block title %}All Clothes{%endblock%} {% block
+body%}
+<div>
+  <div class="page-header">
+    <p>Vintage Clothes</p>
+  </div>
+  <ul class="clothes-row">
+    {% for cloth in clothes %}
+    <li>
+      <a href="/clothes/{{ cloth.clothes_id }}">
+        <img class="all-clothes-images" src="{{ cloth.image_path }}" />
+        <div class="contents">{{ cloth.price }} {{ cloth.name }}</div>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+{% endblock %}

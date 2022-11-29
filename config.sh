@@ -1,0 +1,1 @@
+export POSTGRES_URI="postgresql://Cody Stiffler:z@localhost:5432/jungle"
