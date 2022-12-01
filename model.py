@@ -60,7 +60,7 @@ class Like(db.Model):
     clothes_id = db.Column(db.Integer, db.ForeignKey("clothes.clothes_id"))
 
     user = db.relationship("User", backref="likes")
-    clothing = db.relationship("Clothing", backref="likes")
+    clothes = db.relationship("Clothing", backref="likes")
 
     def __repr__(self):
         return f"<Likes likes_id={self.likes_id} user_id={self.user_id} clothes_id={self.clothes_id}>"

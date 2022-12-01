@@ -123,6 +123,42 @@ def subtotal(clothes_id):
     return render_template("cart.html", total=total)
 
 
+@app.route("/likes")
+def like():
+    get_user = crud.get_user_by_email(session.get("user_email"))
+
+    liked_items = crud.get_liked_clothes_by_user_id(get_user.user_id)
+
+    return render_template("likes.html", liked_items=liked_items)
+
+
+@app.route("/clothes/<clothes_id>/likes", methods=["GET", "POST"])
+def create_liked_item(clothes_id):
+
+    logged_in = session.get("user_email")
+
+    if logged_in is None:
+        flash("Please log in to continue")
+    else:
+        user = crud.get_user_by_email(logged_in)
+        item = crud.get_clothes_by_id(clothes_id)
+
+        liked_item = crud.create_liked_clothes(user.user_id, item.clothes_id)
+
+        db.session.add(liked_item)
+        db.session.commit()
+
+        flash(f" {item.name} has been added to your likes!")
+
+    return redirect(f"/clothes")
+
+
+@app.post("/likes/<clothes_id>/delete")
+def delete_likes(clothes_id):
+    crud.delete_liked_clothes(clothes_id)
+    return redirect("/likes")
+
+
 if __name__ == "__main__":
     connect_to_db(app)
     app.run(host="0.0.0.0", debug=True)

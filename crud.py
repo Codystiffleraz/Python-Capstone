@@ -79,6 +79,29 @@ def delete_cart_clothes(clothes_id):
     db.session.commit()
 
 
+def create_liked_clothes(user_id, clothes_id):
+    like = Like(
+        user_id=user_id,
+        clothes_id=clothes_id,
+    )
+    return like
+
+
+def get_liked_clothes_by_user_id(user_id):
+    return Like.query.filter(Like.user_id == user_id).all()
+
+
+def get_likes_by_likes_id(likes_id):
+    likes_session = Like.query.get(likes_id)
+    return likes_session
+
+
+def delete_liked_clothes(clothes_id):
+    liked_clothes = Like.query.get(clothes_id)
+    db.session.delete(liked_clothes)
+    db.session.commit()
+
+
 if __name__ == '__main__':
     from server import app
     connect_to_db(app)

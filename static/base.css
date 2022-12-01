@@ -110,14 +110,15 @@ li a{
     align-items: center;
     justify-content: center;
     font-size: 1em;
-    background-color: #2a2829;
-    border-radius: 0px 0 10px 10px;
+    background-color: #3d3d3d;
+    border-radius: 10px;
     box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
     color: white;
     height: 7vh;
     line-height: 7vh;
     max-width: 30%;
     font-weight: 300;
+    font-family: 'Karla', sans-serif;
 }
 
 .all-clothes-images{
@@ -134,7 +135,7 @@ li a{
 .all-clothes-images:hover{
     filter: brightness(70%);
 }
-
+/* --------------clothes details-------------------- */
 .page-header{
     text-align: center;
     margin-top: 7px;
@@ -157,7 +158,6 @@ li a{
     flex-direction: row;
     object-fit: cover;
     margin-right: 200px;
-    border: #cccccc 2px solid;
 }
 
 .clothes-details-everything-but-image{
@@ -199,4 +199,143 @@ li a{
 
 .cd-jprice{
     font-weight: bold;
+}
+/* ------------clothes details buttons------------------ */
+.form-for-details{
+    display: flex;
+}
+
+.heart{
+    margin-left: 10px;
+    border: none;
+    background: white;
+    color: red;
+    font-size: 20px;
+}
+
+.heart:hover{
+    color: rgb(140, 32, 32);
+    cursor: pointer;
+}
+
+.submit{
+    padding: 2px;
+    font-family: 'Karla', sans-serif;
+    font-weight: 600;
+    padding-left: 5px;
+    padding-right: 5px;
+    background-color: rgb(209, 209, 209);
+    border: 1px black solid;
+    border-radius: 6px;
+}
+
+.submit:hover{
+    cursor: pointer;
+    background-color: rgb(177, 177, 177);
+}
+
+/* --------------cart------------------- */
+
+.cart-images{
+    height: 90%;
+    width: 20em;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    object-fit: cover;
+    margin: 10px 10px 0px 10px;
+}
+
+.cart-li{
+    display: flex;
+    justify-content: center;
+}
+
+.cart-images:hover{
+    filter: brightness(70%);
+}
+
+.cart-name-price-form{
+    text-align: center;
+    margin-top: 125px;
+    margin-bottom: 125px;
+    padding: 10px 20px 30px 20px;
+    border: black 2px solid;
+    border-radius: 6px;
+}
+
+.cart-name{
+    color:black;
+    margin-bottom: 10px;
+    border-bottom: black solid 2px;
+}
+
+.cart-price{
+    color: black;
+    margin-bottom: 10px;
+    border-bottom: black solid 2px;
+}
+
+.cart-header{
+    text-align: center;
+    margin-top: 7px;
+    font-size: 30px;
+    font-weight: bold;
+    color: #3d3d3d;
+}
+/* -----------------------form---------------- */
+
+.email-form{
+    border: 1px black solid;
+    border-radius: 3px;
+    padding: 3px;
+    margin-bottom: 5px;
+}
+
+.password-form{
+    border: 1px black solid;
+    border-radius: 3px;
+    padding: 3px;
+    margin-bottom: 10px;
+}
+
+.email-word{
+    font-weight: 500;
+    font-size: 18px;
+}
+
+.password-word{
+    font-weight: 500;
+    font-size: 18px;
+}
+
+/* -----------likes----------- */
+
+.likes-ul{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    gap: 25px;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.likes-name-price{
+    color: black;
+}
+
+.likes-images{
+    height: 90%;
+    width: 20em;
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    object-fit: cover;
+    margin: 10px 10px 0px 10px;
+}
+
+.likes-images:hover{
+    filter: brightness(70%);
 }

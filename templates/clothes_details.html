@@ -32,10 +32,14 @@
     </div>
 
     {% if session.get('user_email') %}
-
+    <div class="form-for-details">
     <form action="/clothes/{{ clothes.clothes_id }}/carts" method="POST">
       <p><input class="submit" type="Submit" value="Add to Cart"/></p> 
     </form>
+    <form action="/clothes/{{ clothes.clothes_id }}/likes" method="POST">
+      <button class="heart"><i class="fa-solid fa-heart"></i></button>
+    </form>
+    </div>
   </div>
 
 </div>

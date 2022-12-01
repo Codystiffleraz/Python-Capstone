@@ -1,0 +1,28 @@
+{% extends 'base.html' %} {% block title %}Likes{% endblock %} {% block body %}
+
+<div class="page-header">
+  <h3>Likes</h3>
+</div>
+
+<div class="likes-div">
+  <ul class="likes-ul">
+    {% for liked_item in liked_items %}
+    <li class="likes-li">
+      <a href="/clothes/{{ liked_item.clothes.clothes_id }}">
+        <img class="likes-images" src="{{ liked_item.clothes.image_path }}" />
+        <div class="likes-name-price">
+          <div>{{ liked_item.clothes.name }}</div>
+          <div>Price: {{ liked_item.clothes.price }}</div>
+        </div>
+      </a>
+      <div class="forms-in-likes-page">
+        <form action="/likes/{{ liked_item.likes_id }}/delete" method="POST">
+          <input class="submit" type="submit" value="Remove" />
+        </form>
+      </div>
+    </li>
+    {% endfor %}
+  </ul>
+</div>
+
+{% endblock %}

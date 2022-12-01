@@ -1,29 +1,28 @@
-{% extends 'base.html' %} {% block title %}Cart{% endblock %} {% block body %}
+{% extends 'base.html' %} {% block title %}Your Cart{% endblock %} {% block body
+%}
 
-<div>
-  <p>Cart</p>
+<div class="cart-header">
+  <p>Your Cart</p>
 </div>
 
-<div>
-  <ul>
+<div class="everything-but-header">
+  <ul class="cart-ul">
     {% for cart_item in cart_items %}
-    <li>
+    <li class="cart-li">
       <a href="/clothes/{{ cart_item.clothes.clothes_id }}">
-        <img class="images" src="{{ cart_item.clothes.image_path }}" />
-        <div>
-          <div>
-            Item <br />
-            {{ cart_item.clothes.name }}
-          </div>
-          <div>
-            Price <br />
-            {{ cart_item.clothes.price }}
-          </div>
+        <div class="cart-images-div">
+        <img class="cart-images" src="{{ cart_item.clothes.image_path }}" />
+        </div>
+        <div class="cart-name-price-form">
+        <div class="cart-name-and-price">
+          <div class="cart-name">{{ cart_item.clothes.name }}</div>
+          <div class="cart-price">Price: {{ cart_item.clothes.price }} </div>
         </div>
       </a>
       <form action="/carts/{{ cart_item.cart_id }}/delete" method="POST">
-        <input type="submit" value="Remove" />
+        <input class="submit" type="submit" value="Remove" />
       </form>
+    </div>
     </li>
     {% endfor %}
   </ul>
