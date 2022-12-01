@@ -63,7 +63,7 @@ def process_login():
         session["user_email"] = user.email
         flash(f"Welcome back, {user.email}!")
 
-    return redirect("/")
+    return redirect("/clothes")
 
 
 @app.route("/logout", methods=["POST"])
